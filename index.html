@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Portfolio | Areeba Hameed | Graphic Designer & Developer</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7b2cbf;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9d4edd;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Gradient Backgrounds */
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        /* Header / Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+        .logo span {
+            color: #a855f7;
+        }
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 0 40px;
+            gap: 40px;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-content h1 {
+            font-size: 3.3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero-content .tagline {
+            font-size: 1.2rem;
+            color: #b0b0d0;
+            margin-bottom: 25px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+        }
+        .btn-outline {
+            border: 1.5px solid #a855f7;
+            color: #a855f7;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(168, 85, 247, 0.1);
+            transform: translateY(-3px);
+        }
+        .hero-stats {
+            flex: 1;
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            text-align: center;
+        }
+
+        /* Section Titles */
+        section {
+            margin: 80px 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #a855f7, #3b82f6);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .skill-category {
+            background: #111128;
+            padding: 25px;
+            border-radius: 25px;
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #2a2a4a;
+            transition: 0.3s;
+        }
+        .skill-category:hover {
+            border-color: #a855f7;
+            transform: translateY(-5px);
+        }
+        .skill-category h3 {
+            color: #a855f7;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .skill-category ul {
+            list-style: none;
+        }
+        .skill-category li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-category i {
+            color: #3b82f6;
+            width: 25px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: #111128;
+            border-radius: 24px;
+            padding: 25px;
+            border: 1px solid #2a2a4a;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+        }
+        .project-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .project-card p {
+            color: #b0b0cc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .tech-tag {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-right: 8px;
+            margin-top: 10px;
+            color: #c084fc;
+        }
+
+        /* ENHANCED EDUCATION SECTION */
+        .edu-cert-enhanced {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .edu-main-card {
+            background: #111128;
+            border-radius: 32px;
+            padding: 35px;
+            border: 1px solid #2a2a4a;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .edu-main-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(168, 85, 247, 0.2);
+        }
+        .degree-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .edu-main-card h3 {
+            font-size: 1.9rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .uni-name {
+            color: #a855f7;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .semester {
+            color: #b0b0cc;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            border-left: 2px solid #a855f7;
+            padding-left: 12px;
+        }
+        .coursework {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .course-tag {
+            background: rgba(59, 130, 246, 0.15);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        /* split layout for certs + tools */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .info-panel {
+            background: #111128;
+            border-radius: 28px;
+            padding: 28px;
+            border: 1px solid #2a2a4a;
+            transition: 0.3s;
+        }
+        .info-panel:hover {
+            border-color: #a855f7;
+            transform: translateY(-3px);
+        }
+        .panel-title {
+            font-size: 1.5rem;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #c084fc;
+        }
+        .panel-title i {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cert-list {
+            list-style: none;
+        }
+        .cert-list li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cert-list li i {
+            color: #3b82f6;
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 10px;
+        }
+        .tool-item {
+            background: rgba(168, 85, 247, 0.1);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            transition: 0.2s;
+        }
+        .tool-item i {
+            color: #a855f7;
+        }
+        .tool-item:hover {
+            background: rgba(168, 85, 247, 0.2);
+            transform: translateY(-2px);
+        }
+        .strengths-area {
+            margin-top: 30px;
+            background: linear-gradient(145deg, #0f0f24, #0a0a1a);
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #2a2a4a;
+        }
+        .strength-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .strength-badge {
+            background: #111128;
+            padding: 10px 22px;
+            border-radius: 60px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #3b82f6;
+            transition: 0.2s;
+        }
+        .strength-badge i {
+            color: #3b82f6;
+        }
+        .strength-badge:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: scale(1.02);
+        }
+        
+        /* Get in Touch */
+        .contact-section {
+            background: linear-gradient(145deg, #0f0f24, #0a0a1a);
+            border-radius: 40px;
+            padding: 50px 40px;
+            margin: 60px 0 40px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            text-align: center;
+        }
+        .contact-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .contact-section h2 span {
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .contact-sub {
+            color: #b0b0cc;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            font-size: 1rem;
+        }
+        .contact-info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .contact-item {
+            background: #111128;
+            padding: 18px 28px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #2a2a4a;
+            min-width: 240px;
+            justify-content: center;
+        }
+        .contact-item i {
+            font-size: 1.6rem;
+        }
+        .contact-item:hover {
+            transform: translateY(-4px);
+            border-color: #a855f7;
+            background: #1a1a35;
+        }
+        .location-item {
+            cursor: default;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #2a2a4a;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-item {
+                padding: 12px 20px;
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">My<span>Portfolio</span>.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#getintouch">Get in Touch</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section unchanged -->
+    <section id="home">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="gradient-text">Areeba Hameed</span> <br>Graphic Designer, Front-End & Mobile App Developer</h1>
+                <div class="tagline">✨ Graphic Designer | Creative Thinker | Computer Science Student</div>
+                <p style="margin-bottom: 20px;"><strong>Career Objective:</strong> Motivated Computer Science student with a strong foundation in front-end development, mobile app development, web design, and digital creativity. Skilled in HTML, CSS, JavaScript, Canva, and video editing, with a keen eye for visual detail and user-friendly design.</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#getintouch" class="btn btn-outline">Let's Connect</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <i class="fas fa-laptop-code" style="font-size: 3rem; color:#a855f7;"></i>
+                <p style="margin-top: 15px;">6th Semester CS | Fatima Jinnah Women’s University</p>
+                <p><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Academic Projects</p>
+                <p><i class="fas fa-palette"></i> Graphic Design Certified</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Tech & Creative Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Front-End</h3>
+                <ul>
+                    <li><i class="fab fa-html5"></i> HTML5</li>
+                    <li><i class="fab fa-css3-alt"></i> CSS3 / Flex/Grid</li>
+                    <li><i class="fab fa-js"></i> JavaScript (ES6)</li>
+                    <li><i class="fas fa-mobile-alt"></i> React Native / Snack Expo</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-paintbrush"></i> Design & Tools</h3>
+                <ul>
+                    <li><i class="fab fa-canva"></i> Canva (Magazine, Posters)</li>
+                    <li><i class="fas fa-camera"></i> Adobe Photoshop</li>
+                    <li><i class="fas fa-video"></i> CapCut / Inshot</li>
+                    <li><i class="fas fa-database"></i> VS Code / Spyder</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Strengths</h3>
+                <ul>
+                    <li><i class="fas fa-lightbulb"></i> Creative Thinking</li>
+                    <li><i class="fas fa-users"></i> Team Collaboration</li>
+                    <li><i class="fas fa-language"></i> English / Urdu</li>
+                    <li><i class="fas fa-chart-line"></i> Quick Learner</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section unchanged -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Library Management System</h3>
+                <p>GUI-based interactive interface for managing books, members, and records. Built with Python Tkinter.</p>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">UI/UX</span>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-magazine"></i></div>
+                <h3>Magazine Design using Canva</h3>
+                <p>Digital magazine layout applying typography, color harmony, and visual balance.</p>
+                <span class="tech-tag">Canva</span>
+                <span class="tech-tag">Graphic Design</span>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-spider"></i></div>
+                <h3>Distributed Web Crawler</h3>
+                <p>Dask-based parallel crawler with sentiment analysis and dashboards.</p>
+                <span class="tech-tag">Dask</span>
+                <span class="tech-tag">Python</span>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-university"></i></div>
+                <h3>Gender Studies Dept. App</h3>
+                <p>React Native app for course & faculty management, with preview/publish features.</p>
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Snack Expo</span>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Library System (Java)</h3>
+                <p>Desktop app using Swing/AWT for library operations automation.</p>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Swing</span>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-folder-open"></i></div>
+                <h3>File Management System</h3>
+                <p>Contact management in C with save/delete/exit operations.</p>
+                <span class="tech-tag">C Language</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENHANCED EDUCATION & CREDENTIALS SECTION -->
+    <section id="education">
+        <h2 class="section-title">Education & Credentials</h2>
+        <div class="edu-cert-enhanced">
+            <!-- Main Education Card -->
+            <div class="edu-main-card">
+                <div class="degree-badge">🎓 Current Student</div>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <div class="uni-name">Fatima Jinnah Women's University, Rawalpindi</div>
+                <div class="semester">6th Semester — Ongoing | Department of Computer Science</div>
+                <div class="coursework">
+                    <span class="course-tag">📱 Web Development</span>
+                    <span class="course-tag">📲 Mobile App Development</span>
+                    <span class="course-tag">🗃️ Data Structures</span>
+                    <span class="course-tag">🎨 Design Thinking</span>
+                </div>
+            </div>
+            
+            <!-- Split Layout: Certifications + Technical Tools -->
+            <div class="split-grid">
+                <div class="info-panel">
+                    <div class="panel-title">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certifications</span>
+                    </div>
+                    <ul class="cert-list">
+                        <li><i class="fas fa-check-circle"></i> Freelancing Certificate – DigiSkills Pakistan</li>
+                        <li><i class="fas fa-palette"></i> Graphic Designing Certificate – DigiSkills Pakistan</li>
+                        <li><i class="fas fa-shield-alt"></i> Foundations of Cybersecurity - Google</li>
+                        <li><i class="fas fa-magic"></i> Ultimate Photoshop Mock-up Creation Course - UDEMY</li>
+                    </ul>
+                </div>
+                <div class="info-panel">
+                    <div class="panel-title">
+                        <i class="fas fa-tools"></i>
+                        <span>Technical Tools</span>
+                    </div>
+                    <div class="tools-grid">
+                        <span class="tool-item"><i class="fab fa-canva"></i> Canva</span>
+                        <span class="tool-item"><i class="fas fa-camera"></i> Adobe Photoshop (Basic)</span>
+                        <span class="tool-item"><i class="fas fa-code"></i> VS Code</span>
+                        <span class="tool-item"><i class="fas fa-chart-line"></i> Spyder</span>
+                        <span class="tool-item"><i class="fas fa-video"></i> Inshot / CapCut</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Strengths with interactive badges -->
+            <div class="strengths-area">
+                <div class="panel-title" style="justify-content: center; margin-bottom: 10px;">
+                    <i class="fas fa-heart"></i>
+                    <span>Personal Strengths</span>
+                </div>
+                <div class="strength-badges">
+                    <span class="strength-badge"><i class="fas fa-lightbulb"></i> Creative Thinking</span>
+                    <span class="strength-badge"><i class="fas fa-eye"></i> Visual Sense</span>
+                    <span class="strength-badge"><i class="fas fa-rocket"></i> Quick Learner</span>
+                    <span class="strength-badge"><i class="fas fa-users"></i> Teamwork</span>
+                    <span class="strength-badge"><i class="fas fa-sync-alt"></i> Adaptability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get in Touch Section (preserved) -->
+    <section id="getintouch">
+        <div class="contact-section">
+            <h2>Get in <span>Touch</span></h2>
+            <p class="contact-sub">Prefer direct email or LinkedIn — happy to discuss freelancing or project work.</p>
+            <div class="contact-info-grid">
+                <a href="mailto:areebahameed936@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>areebahameed936@gmail.com</span>
+                </a>
+                <a href="https://github.com/areebahameed936-dot" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/areebahameed936-dot</span>
+                </a>
+                <a href="https://www.linkedin.com/in/areeba-hameed-0b8019388" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>linkedin.com/in/areeba-hameed</span>
+                </a>
+                <div class="contact-item location-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Rawalpindi, Pakistan</span>
+                </div>
+            </div>
+            <p style="margin-top: 38px; font-size: 0.85rem; color:#8b8baa;">✨ Open for collaborations & creative opportunities — let's build something impactful.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 | Designed with <i class="fas fa-heart" style="color:#a855f7;"></i> by Areeba Hameed | CS Student & Graphic Designer</p>
+        <p style="margin-top: 12px; font-size:0.85rem;">
+            <a href="https://github.com/areebahameed936-dot" target="_blank" style="color:#e0e0e0; text-decoration:none;"><i class="fab fa-github"></i> areebahameed936</a> &nbsp;|&nbsp;
+            <a href="https://www.linkedin.com/in/areeba-hameed-0b8019388" target="_blank" style="color:#e0e0e0; text-decoration:none;"><i class="fab fa-linkedin"></i> areeba-hameed</a> &nbsp;|&nbsp;
+            <i class="fas fa-envelope"></i> areebahameed936@gmail.com
+        </p>
+    </footer>
+</div>
+
+<script>
+    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if(target) target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    const connectButton = document.querySelector('.btn-outline');
+    if(connectButton && connectButton.getAttribute('href') === '#getintouch') {
+        connectButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.querySelector('#getintouch');
+            if(targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+</script>
+</body>
+</html>
